@@ -13,8 +13,8 @@ import SecurePage from '../pageobjects/secure.page.js';
     ]
  */
 
-const startMonth = 'Oct 2023';
-const endMonth = 'Nov 2023';
+const startMonth = 'Jan 2023';
+const endMonth = 'Dec 2023';
 
 describe('My Login application', () => {
 	it('should login with valid credentials', async () => {
@@ -54,7 +54,7 @@ describe('My Login application', () => {
 		while (await SecurePage.loadMoreBtn.isDisplayed()) {
 			await (await SecurePage.loadMoreBtn).scrollIntoView();
 			await SecurePage.loadMoreBtn.click();
-			await browser.pause(1200);
+			await browser.pause(1000);
 		}
 
 		await (await SecurePage.checkAllBox).waitForClickable();
@@ -62,6 +62,11 @@ describe('My Login application', () => {
 
 		await SecurePage.continueBtn.click();
 
-		await browser.pause(7000);
+		// Checks off the 1st box in each group
+		for await (const elm of SecurePage.refCheckBoxes) {
+			(await elm.$('input')).click();
+		}
+
+		await browser.debug();
 	});
 });
