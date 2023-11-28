@@ -1,5 +1,11 @@
 # A Script to Automate CME submission for Islam
 
+Prerequisites:
+
+a) Download VS Code https://code.visualstudio.com/download
+
+b) Download nodejs https://nodejs.org/en/download
+
 Step 1: Clone or download this repo to your laptop.
 
 Step 2: From cmd, change the directory to where you saved the repo.
